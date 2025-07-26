@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Crown, Zap, Sword, Eye, Hammer, Feather, Cross, Scroll } from "lucide-react";
+import LearnMoreModal from "./LearnMoreModal";
 
 const GodsSection = () => {
   const [activeTab, setActiveTab] = useState("greek");
+  const [learnMoreModal, setLearnMoreModal] = useState({ isOpen: false, topic: "", type: "" });
 
   const greekGods = [
     {
@@ -140,6 +142,14 @@ const GodsSection = () => {
     }
   };
 
+  const handleLearnMore = (godName) => {
+    setLearnMoreModal({
+      isOpen: true,
+      topic: godName,
+      type: "god"
+    });
+  };
+
   return (
     <section className="py-20 bg-gradient-to-b from-dark-bg to-deep-purple/20">
       <div className="max-w-7xl mx-auto px-6">
@@ -247,13 +257,14 @@ const GodsSection = () => {
                     {god.description}
                   </p>
                   
-                  <motion.div
+                  <motion.button
+                    onClick={() => handleLearnMore(god.name)}
                     whileHover={{ x: 5 }}
-                    className="inline-flex items-center text-mystical-gold font-semibold cursor-pointer group-hover:text-amber-400 transition-colors duration-300"
+                    className="inline-flex items-center text-mystical-gold font-semibold cursor-pointer hover:text-amber-400 transition-colors duration-300"
                   >
                     Learn More About {god.name}
-                    <Zap className="ml-2 group-hover:animate-pulse" size={16} />
-                  </motion.div>
+                    <Zap className="ml-2 hover:animate-pulse" size={16} />
+                  </motion.button>
                 </div>
 
                 {/* Glow Effect */}
@@ -265,6 +276,14 @@ const GodsSection = () => {
           </motion.div>
         </AnimatePresence>
       </div>
+
+      {/* Learn More Modal */}
+      <LearnMoreModal
+        isOpen={learnMoreModal.isOpen}
+        onClose={() => setLearnMoreModal({ isOpen: false, topic: "", type: "" })}
+        topic={learnMoreModal.topic}
+        type={learnMoreModal.type}
+      />
     </section>
   );
 };
