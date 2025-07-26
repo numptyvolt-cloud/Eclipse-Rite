@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Crown, Zap, Sword, Eye, Hammer, Feather, Ankh, Scroll } from "lucide-react";
+import { Crown, Zap, Sword, Eye, Hammer, Feather, Cross, Scroll } from "lucide-react";
 
 const GodsSection = () => {
   const [activeTab, setActiveTab] = useState("greek");
