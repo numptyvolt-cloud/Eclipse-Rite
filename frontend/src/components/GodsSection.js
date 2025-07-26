@@ -89,7 +89,7 @@ const GodsSection = () => {
       title: "Guardian of the Dead",
       domain: "Death & Mummification",
       description: "The jackal-headed god who guides souls through the afterlife. Anubis weighs hearts against the feather of Ma'at and protects the sacred burial process.",
-      icon: Ankh,
+      icon: Cross,
       image: "https://images.unsplash.com/photo-1576766691319-e50fa1922ffc?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwxfHxFZ3lwdGlhbiUyMG15dGhvbG9neXxlbnwwfHx8cHVycGxlfDE3NTM1NDgzODh8MA&ixlib=rb-4.1.0&q=85",
       color: "from-black to-gold"
     },
