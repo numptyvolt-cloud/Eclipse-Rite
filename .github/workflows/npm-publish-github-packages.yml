@@ -34,3 +34,14 @@ jobs:
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          # Clone the repository
+git clone https://github.com/yourusername/eclipse-rite.git
+
+# Navigate to frontend
+cd eclipse-rite/frontend
+
+# Install dependencies
+yarn install
+
+# Start development server
+yarn start
