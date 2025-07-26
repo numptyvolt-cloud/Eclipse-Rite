@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { BookOpen, Moon, Flame, Leaf, Star, Wand2 } from "lucide-react";
+import LearnMoreModal from "./LearnMoreModal";
 
 const SpellsRitualsSection = () => {
   const [activeTab, setActiveTab] = useState("spells");
+  const [learnMoreModal, setLearnMoreModal] = useState({ isOpen: false, topic: "", type: "" });
 
   const spells = [
     {
@@ -79,6 +81,14 @@ const SpellsRitualsSection = () => {
       color: "from-purple-400 to-pink-500"
     }
   ];
+
+  const handleLearnMore = (itemName, type) => {
+    setLearnMoreModal({
+      isOpen: true,
+      topic: itemName,
+      type: type
+    });
+  };
 
   return (
     <section className="py-20 bg-gradient-to-b from-dark-bg to-deep-purple/30">
@@ -216,6 +226,7 @@ const SpellsRitualsSection = () => {
 
                 {/* Learn More Button */}
                 <motion.button
+                  onClick={() => handleLearnMore(item.name, activeTab === "spells" ? "spell" : "ritual")}
                   whileHover={{ x: 5 }}
                   className="mt-4 flex items-center gap-2 text-mystical-gold font-semibold text-sm group-hover:text-amber-400 transition-colors duration-300"
                 >
@@ -227,6 +238,14 @@ const SpellsRitualsSection = () => {
           </motion.div>
         </AnimatePresence>
       </div>
+
+      {/* Learn More Modal */}
+      <LearnMoreModal
+        isOpen={learnMoreModal.isOpen}
+        onClose={() => setLearnMoreModal({ isOpen: false, topic: "", type: "" })}
+        topic={learnMoreModal.topic}
+        type={learnMoreModal.type}
+      />
     </section>
   );
 };

@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Scroll, TreePine, Sun, Sparkles } from "lucide-react";
+import LearnMoreModal from "./LearnMoreModal";
 
 const PaganHistorySection = () => {
+  const [learnMoreModal, setLearnMoreModal] = useState({ isOpen: false, topic: "", type: "" });
+
   const historyCards = [
     {
       title: "Ancient Origins",
@@ -26,6 +29,14 @@ const PaganHistorySection = () => {
       image: "https://images.unsplash.com/photo-1649297152475-a231aec801c9?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODB8MHwxfHNlYXJjaHwxfHxkYXJrJTIwbXlzdGljYWx8ZW58MHx8fHB1cnBsZXwxNzUzNTQ3NjA5fDA&ixlib=rb-4.1.0&q=85"
     }
   ];
+
+  const handleLearnMore = (era) => {
+    setLearnMoreModal({
+      isOpen: true,
+      topic: `${era} Era`,
+      type: "general"
+    });
+  };
 
   return (
     <section className="py-20 bg-gradient-to-b from-deep-purple/20 to-dark-bg">
@@ -113,13 +124,14 @@ const PaganHistorySection = () => {
                     {card.description}
                   </p>
 
-                  <motion.div
+                  <motion.button
+                    onClick={() => handleLearnMore(card.title)}
                     whileHover={{ x: 5 }}
                     className="mt-6 inline-flex items-center text-purple-glow font-semibold cursor-pointer hover:text-mystical-gold transition-colors duration-300"
                   >
                     Explore This Era
                     <Sparkles className="ml-2 hover:animate-spin" size={16} />
-                  </motion.div>
+                  </motion.button>
                 </motion.div>
               </div>
             </motion.div>
@@ -129,6 +141,14 @@ const PaganHistorySection = () => {
         {/* Timeline Decoration */}
         <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-mystical-gold via-purple-glow to-mystical-gold transform -translate-x-1/2 opacity-30" />
       </div>
+
+      {/* Learn More Modal */}
+      <LearnMoreModal
+        isOpen={learnMoreModal.isOpen}
+        onClose={() => setLearnMoreModal({ isOpen: false, topic: "", type: "" })}
+        topic={learnMoreModal.topic}
+        type={learnMoreModal.type}
+      />
     </section>
   );
 };
