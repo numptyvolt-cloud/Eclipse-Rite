@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Users, MessageCircle, Calendar, Shield, Sparkles, Heart, Cards, BookOpen } from "lucide-react";
+import { Users, MessageCircle, Calendar, Shield, Sparkles, Heart, CreditCard, BookOpen } from "lucide-react";
 
 const CommunitySection = () => {
   const features = [
