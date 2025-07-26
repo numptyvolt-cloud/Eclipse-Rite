@@ -14,7 +14,7 @@ const ServicesSection = () => {
         "Celtic Cross & Custom Spreads",
         "Personalized Interpretations"
       ],
-      icon: Cards,
+      icon: CreditCard,
       image: "https://images.unsplash.com/photo-1705592759103-956f228c255d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwyfHx0YXJvdCUyMGNhcmRzfGVufDB8fHxwdXJwbGV8MTc1MzQ3NDU1MXww&ixlib=rb-4.1.0&q=85",
       color: "from-purple-600 to-indigo-700",
       accent: "text-purple-300"
