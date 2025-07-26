@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Sparkles, Moon, Stars } from "lucide-react";
+import DarkArtsModal from "./DarkArtsModal";
 
 const HeroSection = () => {
+  const [isDarkArtsModalOpen, setIsDarkArtsModalOpen] = useState(false);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
@@ -100,7 +103,10 @@ const HeroSection = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-mystical-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </a>
           
-          <button className="group px-8 py-4 border-2 border-purple-glow text-purple-glow font-semibold text-lg rounded-full hover:bg-purple-glow hover:text-dark-bg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-glow/25">
+          <button
+            onClick={() => setIsDarkArtsModalOpen(true)}
+            className="group px-8 py-4 border-2 border-purple-glow text-purple-glow font-semibold text-lg rounded-full hover:bg-purple-glow hover:text-dark-bg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-glow/25"
+          >
             <span className="flex items-center gap-2">
               <Moon className="group-hover:rotate-12 transition-transform duration-300" size={20} />
               Explore Sacred Arts
@@ -119,6 +125,12 @@ const HeroSection = () => {
           <div className="w-1 h-3 bg-white/60 rounded-full mt-2 animate-pulse" />
         </div>
       </motion.div>
+
+      {/* Dark Arts Modal */}
+      <DarkArtsModal 
+        isOpen={isDarkArtsModalOpen} 
+        onClose={() => setIsDarkArtsModalOpen(false)} 
+      />
     </section>
   );
 };

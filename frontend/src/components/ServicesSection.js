@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { CreditCard, BookOpen, Star, Moon, Sparkles, Eye, Wand2, Heart } from "lucide-react";
+import { CreditCard, BookOpen, Star, Moon, Sparkles, Eye, Wand2, Heart, MessageSquare } from "lucide-react";
 
 const ServicesSection = () => {
   const services = [
@@ -17,7 +17,8 @@ const ServicesSection = () => {
       icon: CreditCard,
       image: "https://images.unsplash.com/photo-1705592759103-956f228c255d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwyfHx0YXJvdCUyMGNhcmRzfGVufDB8fHxwdXJwbGV8MTc1MzQ3NDU1MXww&ixlib=rb-4.1.0&q=85",
       color: "from-purple-600 to-indigo-700",
-      accent: "text-purple-300"
+      accent: "text-purple-300",
+      bookingInstructions: "Join our Discord server and open a ticket in #card-readings channel to book your personalized reading session."
     },
     {
       title: "Beginner Spell Teaching",
@@ -32,7 +33,8 @@ const ServicesSection = () => {
       icon: BookOpen,
       image: "https://images.unsplash.com/photo-1665089144441-9ed25961b149?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHwzfHx3aXRjaGNyYWZ0fGVufDB8fHxwdXJwbGV8MTc1MzU0ODQwMXww&ixlib=rb-4.1.0&q=85",
       color: "from-mystical-gold to-amber-600",
-      accent: "text-amber-300"
+      accent: "text-amber-300",
+      bookingInstructions: "Join our Discord server and create a ticket in #spell-learning channel to start your magical education journey."
     }
   ];
 
@@ -68,6 +70,81 @@ const ServicesSection = () => {
       description: "Advanced techniques for bringing desires into reality"
     }
   ];
+
+  const BookingModal = ({ service, isOpen, onClose }) => {
+    if (!isOpen) return null;
+
+    return (
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+        onClick={onClose}
+      >
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8, y: 50 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.8, y: 50 }}
+          className="bg-gradient-to-br from-deep-purple/95 to-mystical-purple/90 backdrop-blur-md rounded-3xl border border-mystical-gold/30 max-w-md w-full p-8"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div className="text-center">
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+              className={`inline-flex p-4 bg-gradient-to-r ${service.color} rounded-full mb-4`}
+            >
+              <service.icon size={32} className="text-white" />
+            </motion.div>
+            
+            <h3 className="text-2xl font-mystical font-bold text-mystical-gold mb-4">
+              Book {service.title}
+            </h3>
+            
+            <div className="bg-gradient-to-r from-mystical-purple/30 to-deep-purple/30 backdrop-blur-sm rounded-xl p-6 border border-purple-glow/20 mb-6">
+              <div className="flex items-start gap-3 mb-4">
+                <MessageSquare size={20} className="text-mystical-gold flex-shrink-0 mt-1" />
+                <div className="text-left">
+                  <h4 className="font-semibold text-purple-glow mb-2">How to Book:</h4>
+                  <p className="text-white/80 text-sm leading-relaxed">
+                    {service.bookingInstructions}
+                  </p>
+                </div>
+              </div>
+              
+              <div className="bg-mystical-gold/10 border border-mystical-gold/30 rounded-lg p-3">
+                <p className="text-mystical-gold text-xs font-medium">
+                  💫 Our team will respond within 24 hours to schedule your session
+                </p>
+              </div>
+            </div>
+            
+            <div className="flex gap-3">
+              <a
+                href="https://discord.gg/8pe6qCsmWr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`flex-1 inline-flex items-center justify-center gap-2 bg-gradient-to-r ${service.color} text-white px-4 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300`}
+              >
+                <MessageSquare size={16} />
+                Join & Book Now
+              </a>
+              
+              <button
+                onClick={onClose}
+                className="px-4 py-3 border border-purple-glow/50 text-purple-glow rounded-full hover:bg-purple-glow/10 transition-all duration-300"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </motion.div>
+      </motion.div>
+    );
+  };
+
+  const [selectedService, setSelectedService] = React.useState(null);
 
   return (
     <section className="py-20 bg-gradient-to-b from-deep-purple/20 to-mystical-purple/10">
@@ -180,6 +257,7 @@ const ServicesSection = () => {
                   </div>
 
                   <motion.button
+                    onClick={() => setSelectedService(service)}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className={`inline-flex items-center gap-2 bg-gradient-to-r ${service.color} text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300`}
@@ -266,32 +344,35 @@ const ServicesSection = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <motion.a
-              href="https://discord.gg/8pe6qCsmWr"
-              target="_blank"
-              rel="noopener noreferrer"
+            <motion.button
+              onClick={() => setSelectedService(services[0])}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="inline-flex items-center gap-2 bg-gradient-to-r from-mystical-gold to-amber-500 text-dark-bg px-6 py-3 rounded-full font-semibold hover:shadow-lg hover:shadow-mystical-gold/25 transition-all duration-300"
             >
               <CreditCard size={18} />
               Book a Reading
-            </motion.a>
+            </motion.button>
             
-            <motion.a
-              href="https://discord.gg/8pe6qCsmWr"
-              target="_blank"
-              rel="noopener noreferrer"
+            <motion.button
+              onClick={() => setSelectedService(services[1])}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="inline-flex items-center gap-2 border-2 border-purple-glow text-purple-glow px-6 py-3 rounded-full font-semibold hover:bg-purple-glow hover:text-dark-bg transition-all duration-300"
             >
               <BookOpen size={18} />
               Start Learning Spells
-            </motion.a>
+            </motion.button>
           </div>
         </motion.div>
       </div>
+
+      {/* Booking Modal */}
+      <BookingModal
+        service={selectedService}
+        isOpen={!!selectedService}
+        onClose={() => setSelectedService(null)}
+      />
     </section>
   );
 };
