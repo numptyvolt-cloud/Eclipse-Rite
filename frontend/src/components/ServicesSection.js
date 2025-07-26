@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Cards, BookOpen, Star, Moon, Sparkles, Eye, Wand2, Heart } from "lucide-react";
+import { CreditCard, BookOpen, Star, Moon, Sparkles, Eye, Wand2, Heart } from "lucide-react";
 
 const ServicesSection = () => {
   const services = [
