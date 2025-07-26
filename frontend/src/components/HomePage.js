@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import HeroSection from "./HeroSection";
 import GodsSection from "./GodsSection";
+import ServicesSection from "./ServicesSection";
 import PaganHistorySection from "./PaganHistorySection";
 import SpellsRitualsSection from "./SpellsRitualsSection";
 import CommunitySection from "./CommunitySection";
@@ -12,6 +13,7 @@ const HomePage = () => {
     <div className="min-h-screen bg-dark-bg">
       <HeroSection />
       <GodsSection />
+      <ServicesSection />
       <PaganHistorySection />
       <SpellsRitualsSection />
       <CommunitySection />
