@@ -98,7 +98,7 @@ const Footer = () => {
               
               {/* Sacred Symbols */}
               <div className="flex gap-4">
-                {[Moon, Star, Cards, Eye].map((Icon, index) => (
+                {[Moon, Star, CreditCard, Eye].map((Icon, index) => (
                   <motion.div
                     key={index}
                     whileHover={{ scale: 1.2, rotate: 10 }}
