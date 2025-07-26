@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Moon, Star, Sparkles, Heart, Shield, Book, Cards, Eye } from "lucide-react";
+import { Moon, Star, Sparkles, Heart, Shield, Book, CreditCard, Eye } from "lucide-react";
 
 const Footer = () => {
   const footerLinks = {
