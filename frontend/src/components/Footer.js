@@ -1,26 +1,32 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Moon, Star, Sparkles, Heart, Shield, Book } from "lucide-react";
+import { Moon, Star, Sparkles, Heart, Shield, Book, Cards, Eye } from "lucide-react";
 
 const Footer = () => {
   const footerLinks = {
     "Sacred Paths": [
       "Greek Mythology",
-      "Pagan Traditions",
-      "Modern Witchcraft",
-      "Divine Connection"
+      "Norse Traditions", 
+      "Egyptian Mysteries",
+      "Modern Witchcraft"
+    ],
+    "Our Services": [
+      "Divine Card Readings",
+      "Beginner Spell Teaching",
+      "Lunar Guidance",
+      "Energy Healing"
     ],
     "Community": [
       "Discord Server",
       "Monthly Rituals",
       "Study Groups", 
-      "Beginner Guides"
+      "Eclipse Ceremonies"
     ],
     "Resources": [
       "Spell Library",
-      "Ritual Calendar",
-      "Divine Correspondences",
-      "Book Recommendations"
+      "Tarot Meanings", 
+      "God Correspondences",
+      "Sacred Calendar"
     ]
   };
 
@@ -73,7 +79,7 @@ const Footer = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 pt-16 pb-8">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
           {/* Brand Section */}
           <div className="lg:col-span-1">
             <motion.div
@@ -83,16 +89,16 @@ const Footer = () => {
               viewport={{ once: true }}
             >
               <h3 className="text-3xl font-mystical font-bold text-transparent bg-clip-text bg-gradient-to-r from-mystical-gold to-purple-glow mb-4">
-                Sacred Mysteries
+                Eclipse Rite
               </h3>
               <p className="text-white/70 leading-relaxed mb-6">
-                A sanctuary for those who seek ancient wisdom, divine connection, 
-                and the sacred mysteries of Greek gods and pagan traditions.
+                Where ancient wisdom meets modern mystical practice. Discover divine guidance through 
+                card readings, master spellcraft, and connect with sacred mythologies.
               </p>
               
               {/* Sacred Symbols */}
               <div className="flex gap-4">
-                {[Moon, Star, Sparkles].map((Icon, index) => (
+                {[Moon, Star, Cards, Eye].map((Icon, index) => (
                   <motion.div
                     key={index}
                     whileHover={{ scale: 1.2, rotate: 10 }}
@@ -157,10 +163,10 @@ const Footer = () => {
           </div>
           
           <h4 className="text-2xl font-mystical font-bold text-white mb-2">
-            Join Our Sacred Circle
+            Join the Eclipse Rite Circle
           </h4>
           <p className="text-white/80 mb-4">
-            Connect with fellow practitioners and deepen your spiritual journey
+            Connect with fellow practitioners, get card readings, and learn the mystical arts
           </p>
           
           <motion.a
@@ -172,7 +178,7 @@ const Footer = () => {
             className="inline-flex items-center gap-2 bg-gradient-to-r from-mystical-gold to-amber-500 text-dark-bg px-6 py-3 rounded-full font-semibold hover:shadow-lg hover:shadow-mystical-gold/25 transition-all duration-300"
           >
             <Sparkles size={16} />
-            Join Discord Community
+            Enter Our Sacred Discord
           </motion.a>
         </motion.div>
 
@@ -207,7 +213,7 @@ const Footer = () => {
               Privacy Oath
             </motion.a>
             <span className="text-white/40">
-              © 2025 Sacred Mysteries. All mystical rights reserved.
+              © 2025 Eclipse Rite. All mystical rights reserved.
             </span>
           </div>
         </div>
