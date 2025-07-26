@@ -25,7 +25,7 @@ const CommunitySection = () => {
       description: "Learn from experienced practitioners with structured lessons on mythology, divination, spellcraft, and beginner-friendly tutorials."
     },
     {
-      icon: Cards,
+      icon: CreditCard,
       title: "Card Reading Circle",
       description: "Join our dedicated tarot and oracle reading groups, share interpretations, and practice your divination skills with fellow readers."
     },
