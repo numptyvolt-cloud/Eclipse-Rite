@@ -274,7 +274,7 @@ const ServicesSection = () => {
               whileTap={{ scale: 0.95 }}
               className="inline-flex items-center gap-2 bg-gradient-to-r from-mystical-gold to-amber-500 text-dark-bg px-6 py-3 rounded-full font-semibold hover:shadow-lg hover:shadow-mystical-gold/25 transition-all duration-300"
             >
-              <Cards size={18} />
+              <CreditCard size={18} />
               Book a Reading
             </motion.a>
             
