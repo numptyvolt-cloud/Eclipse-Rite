@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/eclipse-rite/static/css/main.9032fb6f.css",
+    "main.js": "/eclipse-rite/static/js/main.a5844619.js",
+    "index.html": "/eclipse-rite/index.html",
+    "main.9032fb6f.css.map": "/eclipse-rite/static/css/main.9032fb6f.css.map",
+    "main.a5844619.js.map": "/eclipse-rite/static/js/main.a5844619.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9032fb6f.css",
+    "static/js/main.a5844619.js"
+  ]
+}
