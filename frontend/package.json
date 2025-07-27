@@ -2,7 +2,7 @@
   "name": "eclipse-rite",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://yourusername.github.io/eclipse-rite",
+  "homepage": "https://numptyvolt-cloud.github.io/eclipse-rite",
   "dependencies": {
     "@headlessui/react": "^2.2.6",
     "axios": "^1.8.4",
